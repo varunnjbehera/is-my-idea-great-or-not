@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --font-display and --font-sans are provided by next/font in app/layout.tsx
+     (Fraunces for display, Inter for body). Fallbacks live in tailwind.config.ts. */
+  --paper: #faf7f2;
+  --ink: #141210;
+  --muted: #6b6259;
+  --line: #e5ddd2;
+  --accent: #c2410c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #141210;
+  color: #faf7f2;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.card {
+  background: #fffdf9;
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(20, 18, 16, 0.04), 0 12px 32px -24px rgba(20, 18, 16, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.5s ease both;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
